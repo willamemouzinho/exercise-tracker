@@ -43,23 +43,6 @@ export const getLogs = async (req: Request, res: Response) => {
 			.limit(Number(limit) || 0)
 			.select({ description: 1, duration: 1, date: 1, _id: 0 })
 			.exec()
-		// const exercises = Number(limit)
-		// 	? await Exercise.find(query)
-		// 			.limit(Number(limit))
-		// 			.select({ description: 1, duration: 1, date: 1, _id: 0 })
-		// 			.exec()
-		// 	: await Exercise.find(query)
-		// 			.select({ description: 1, duration: 1, date: 1, _id: 0 })
-		// 			.exec()
-
-		// const count = Number(limit)
-		// 	? await Exercise.countDocuments(query)
-		// 			.limit(Number(limit))
-		// 			.select({ description: 1, duration: 1, date: 1, _id: 0 })
-		// 			.exec()
-		// 	: await Exercise.countDocuments(query)
-		// 			.select({ description: 1, duration: 1, date: 1, _id: 0 })
-		// 			.exec()
 
 		const log: Log[] = exercises.map(({ description, date, duration }) => ({
 			description,
@@ -75,6 +58,7 @@ export const getLogs = async (req: Request, res: Response) => {
 		})
 	} catch (error) {
 		console.error(error)
+		// return res.status(500).json(error)
 		return res.status(500).json({ message: 'internal server error.' })
 	}
 }

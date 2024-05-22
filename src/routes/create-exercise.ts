@@ -46,13 +46,6 @@ export const createExercise = async (req: Request, res: Response) => {
 			duration: exercise.duration,
 			description: exercise.description,
 		})
-		// return res.status(200).json({
-		// 	_id: user.id,
-		// 	username: user.username,
-		// 	date: exercise.date.toDateString(),
-		// 	duration: exercise.duration,
-		// 	description: exercise.description,
-		// })
 	} catch (error) {
 		console.error(error)
 		// return res.status(500).json(error)
